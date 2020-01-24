@@ -15,6 +15,12 @@ pipeline {
         }
       }
     }
+
+    stage('Deploy to K8s') {
+      steps {
+        sh " echo 'testing the webhook' "
+      }
+    }
   }
 
 }
