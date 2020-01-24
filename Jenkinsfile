@@ -3,8 +3,7 @@ pipeline {
   stages {
     stage('Build Docker images') {
       steps {
-        sh "sudo su"
-        sh "docker build ./vote -t honey99/vote:v2"
+        sh "sudo docker build ./vote -t honey99/vote:v2"
       }
     }
 
