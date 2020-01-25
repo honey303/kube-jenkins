@@ -21,10 +21,8 @@ pipeline {
           sshagent(['a4a7643e-7e73-4726-9062-f5eb714cb828']) {
             script {
               sh '''
-                ssh ubuntu@ec2-18-207-206-71.compute-1.amazonaws.com /bin/bash << EOF
-                sudo su
-                mkdir steven
-                EOF
+                ssh ubuntu@ec2-18-207-206-71.compute-1.amazonaws.com 'bash -s' < /home/ubuntu/update.sh
+                echo "success!"
               '''
             }
           }
