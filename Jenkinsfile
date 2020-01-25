@@ -21,8 +21,10 @@ pipeline {
           sshagent(['a4a7643e-7e73-4726-9062-f5eb714cb828']) {
             script {
               sh '''
-                ssh ubuntu@ec2-18-207-206-71.compute-1.amazonaws.com sudo su
-                kubectl set image deployment/db postgres=postgres:9.4 -n vote
+                ssh ubuntu@ec2-18-207-206-71.compute-1.amazonaws.com /bin/bash << EOF
+                sudo su
+                mkdir steven
+                EOF
               '''
             }
           }
