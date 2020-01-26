@@ -24,6 +24,7 @@ pipeline {
                 ssh -t ubuntu@ec2-18-207-206-71.compute-1.amazonaws.com << EOF
                   sudo su
                   bash /home/ubuntu/update.sh
+                  exit
                 EOF
 
               '''
