@@ -11,7 +11,7 @@ pipeline {
       steps {
         withCredentials([string(credentialsId: 'docker-hub', variable: 'dockerpwd')]) {
             sh "sudo docker login -u honey99 -p ${dockerpwd}"
-            sh "sudo docker push honey99/vote:v2"
+            sh "sudo docker push honey99/vote:latest"
         }
       }
     }
