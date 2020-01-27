@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build Docker images') {
       steps {
-        sh "sudo docker build ./vote -t honey99/vote:v2"
+        sh "sudo docker build ./vote -t honey99/vote:latest"
       }
     }
 
@@ -24,7 +24,7 @@ pipeline {
                 ssh -t ubuntu@ec2-18-207-206-71.compute-1.amazonaws.com << EOF
                   sudo su
                   bash /home/ubuntu/update.sh
-                
+
               '''
             }
           }
