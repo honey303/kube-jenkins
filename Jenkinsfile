@@ -3,8 +3,8 @@ pipeline {
   stages {
     stage('Build Docker images') {
       steps {
-        sh "sudo docker build ./vote -t honey99/vote:v3"
-        sh "sudo docker build ./result -t honey99/result:v3"
+        sh "sudo docker build ./vote -t honey99/vote:v4"
+        sh "sudo docker build ./result -t honey99/result:v4"
       }
     }
 
@@ -12,8 +12,8 @@ pipeline {
       steps {
         withCredentials([string(credentialsId: 'docker-hub', variable: 'dockerpwd')]) {
             sh "sudo docker login -u honey99 -p ${dockerpwd}"
-            sh "sudo docker push honey99/vote:v3"
-            sh "sudo docker push honey99/result:v3"
+            sh "sudo docker push honey99/vote:v4"
+            sh "sudo docker push honey99/result:v4"
         }
       }
     }
