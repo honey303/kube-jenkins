@@ -3,8 +3,8 @@ pipeline {
   stages {
     stage('Build Docker images') {
       steps {
-        sh "sudo docker build ./vote -t honey99/vote:latest"
-        sh "sudo docker build ./result -t honey99/result:v2"
+        sh "sudo docker build ./vote -t honey99/vote:v3"
+        sh "sudo docker build ./result -t honey99/result:v3"
       }
     }
 
