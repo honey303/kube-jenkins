@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: "result-ingress"
+  namespace: "vote"
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: instance
+    alb.ingress.kubernetes.io/subnets: subnet-003dee1a286f3d42f, subnet-0121372bddf49edf4, subnet-04a510663a6c5e41c
+
+  labels:
+    app: vote-ingress
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /*
+            backend:
+              serviceName: "result"
+              servicePort: 80
